@@ -14,14 +14,9 @@ import javafx.scene.text.Font;
 
 import javafx.scene.control.Label;
 
-
 public class MCGUI extends AbstractGUI {
 	
 	private MCAnswer answer = new MCAnswer();
-	
-	private Player player1 = new Player();
-	
-	private Player player2 = new Player();
 	
 	private int player1_selection = 0;
     
@@ -76,7 +71,7 @@ public class MCGUI extends AbstractGUI {
     	
     	root.getChildren().clear();
        
-    	player1_score_text = new Label("Player 1 score: " + player1.getScore());
+    	player1_score_text = new Label(player1.getName() + "\'s score: " + player1.getScore());
 		
 		player1_score_text.setFont(Font.font("Arial", 15));
 		
@@ -86,7 +81,7 @@ public class MCGUI extends AbstractGUI {
 		
 		player1_score_text.setLayoutY(275);
 		
-		player2_score_text = new Label("Player 2 score: " + player2.getScore());
+		player2_score_text = new Label(player2.getName() + "\'s score: " + player2.getScore());
 		
 		player2_score_text.setFont(Font.font("Arial", 15));
 		
@@ -425,7 +420,15 @@ public class MCGUI extends AbstractGUI {
 		        		
 		        		player2.incrementScore();
 		        		
-		        		player2_score_text.setText("Player 2 score: " + player2.getScore());
+		        		player2_score_text.setText(player2.getName() + "\'s score: " + player2.getScore());
+		        		
+		        	}
+		        	
+		        	if(answer.getQuestionIndex() == 10) {
+		        		
+		        		setupEndScreen();
+		        		
+		        		break;
 		        		
 		        	}
 		        	
@@ -452,11 +455,19 @@ public class MCGUI extends AbstractGUI {
 		        	if(answer.isCorrect(chars[player1_selection])) {
 		        		
 		        		player1.incrementScore();
-		        		
-		        		player1_score_text.setText("Player 1 score: " + player1.getScore());
+
+		        		player1_score_text.setText(player1.getName() + "\'s score: " + player1.getScore());
 		        		
 		        	}
 		        	
+		        	
+		        	if(answer.getQuestionIndex() == 10) {
+		        		
+		        		setupEndScreen();
+		        		
+		        		break;
+		        		
+		        	}
 		        	
 		        	answer.nextQuestion();
 		        		        	

@@ -121,6 +121,18 @@ public class Question {
 		multiple_choice_questions_d.add("All of the above and more! ");
 
 		multiple_choice_answers.add('D');
+		
+		multiple_choice_questions.add("Dining Services reduces waste by...?");
+		
+		multiple_choice_questions_a.add("Safely recovering leftover food to be donated.");
+		
+		multiple_choice_questions_b.add("Offering reusable to-go containers in T\'s.");
+		
+		multiple_choice_questions_c.add("Offering a discount for bringing your own reusable cup to campus coffee shops.");
+		
+		multiple_choice_questions_d.add("All of the above.");
+
+		multiple_choice_answers.add('D');
 
 		multiple_choice_questions.add("At St. Thomas, plastics with a number _ in the recycling triangle are NOT accepted for recycling");
 		

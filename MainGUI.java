@@ -40,9 +40,10 @@ public class MainGUI {
                     
                 }
 
-            } catch (InputMismatchException e) {
-            	
-            	
+            } 
+            
+            catch (InputMismatchException e) {
+            		
                 System.out.println("\nInvalid input. Please enter an integer.\n");
                 
                 scan.nextLine(); // Clear the buffer to allow the user to enter again
@@ -52,4 +53,5 @@ public class MainGUI {
 
         scan.close();
     }
+    
 }

@@ -4,9 +4,13 @@ public class Player {
 	
 	private int score;
 	
-	public Player() {
+	private String name;
+	
+	public Player(String name) {
 		
 		score = 0;
+		
+		this.name = name;
 		
 	}
 	
@@ -25,6 +29,12 @@ public class Player {
 	public int getScore() {
 		
 		return score;
+		
+	}
+	
+	public String getName() {
+		
+		return name;
 		
 	}
 	
