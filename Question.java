@@ -16,6 +16,10 @@ public class Question {
 	
 	private ArrayList<String> multiple_choice_questions_d = new ArrayList<String>();
 	
+	private ArrayList<String> tf_questions = new ArrayList<String>();
+	
+	private ArrayList<Character> tf_choice_answers = new ArrayList<Character>();
+	
 	private String question;
 	
 	private String a;
@@ -27,6 +31,10 @@ public class Question {
 	private String d;
 	
 	private Character answer;
+	
+	private String tf_question;
+	
+	private Character tf_answer;
 	
 	public Question() {
 		
@@ -150,6 +158,50 @@ public class Question {
 
 		multiple_choice_answers.add('D');
 		
+		tf_questions.add("T/F: The Student Sustainability Leadership Program (SSLP) is only for students with environmental majors.");
+
+		tf_questions.add("T/F: Keeping blinds closed during the hottest parts of the day to limit excess heat in the summer is a way to conserve energy.");
+
+		tf_questions.add("T/F: The Pollinator Path is a series of gardens around campus which attract pollinators and support the study of pollinator activity on campus.");
+
+		tf_questions.add("T/F: A bike repair station is located between ASC and O'Shaughnessy Stadium.");
+
+		tf_questions.add("T/F: You get 25 cents off for bringing a reusable cup at campus coffee shops.");
+
+		tf_questions.add("T/F: The water that collects in the storm drains located on campus and the surrounding streets ends up in the Mississippi River.");
+
+		tf_questions.add("T/F: St Thomas does not offer a sustainability minor.");
+
+		tf_questions.add("T/F: Tommies Closet is a monthly pop-up that allows students to shop for secondhand clothes donated by fellow Tommies.");
+
+		tf_questions.add("T/F: Plastic bags can be recycled in the blue recycling bins around campus.");
+
+		tf_questions.add("T/F: At St Thomas, items that are placed in the green organics recycling bins are turned into compost that can be used in gardens and lawns.");
+
+		tf_questions.add("T/F: Plastic bags are accepted for recycling at the specialized recycling stations on campus.");
+		
+		tf_choice_answers.add('F');
+		
+		tf_choice_answers.add('T');
+		
+		tf_choice_answers.add('T');
+		
+		tf_choice_answers.add('T');
+		
+		tf_choice_answers.add('T');
+		
+		tf_choice_answers.add('T');
+		
+		tf_choice_answers.add('F');
+		
+		tf_choice_answers.add('T');
+		
+		tf_choice_answers.add('F');
+		
+		tf_choice_answers.add('T');
+		
+		tf_choice_answers.add('F');
+		
 		setQuestion(0);
 		
 		setQuestionA(0);
@@ -161,6 +213,10 @@ public class Question {
 		setQuestionD(0);
 		
 		setAnswer(0);
+		
+		setTFQuestion(0);
+			
+		setTFAnswer(0);
 		
 	}
 	
@@ -200,6 +256,18 @@ public class Question {
 		
 	}
 	
+	public void setTFQuestion(int x) {
+		
+		tf_question = tf_questions.get(x);
+		
+	}
+	
+	public void setTFAnswer(int x) {
+		
+		tf_answer = tf_choice_answers.get(x);
+		
+	}
+	
 	public String getQuestion() {
 		
 		return question;
@@ -233,6 +301,18 @@ public class Question {
 	public Character getAnswer() {
 		
 		return answer;
+		
+	}
+	
+	public String getTFQuestion() {
+		
+		return tf_question;
+		
+	}
+	
+	public Character getTFAnswer() {
+		
+		return tf_answer;
 		
 	}
 	
