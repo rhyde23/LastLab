@@ -1,4 +1,4 @@
-package LastLab;
+package LastLab.LastLab;
 
 public class Answer extends Question {
 	

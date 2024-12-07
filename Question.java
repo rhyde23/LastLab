@@ -1,4 +1,4 @@
-package LastLab;
+package LastLab.LastLab;
 
 import java.util.ArrayList;
 
