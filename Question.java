@@ -114,7 +114,7 @@ public class Question {
 
 		multiple_choice_answers.add('D');
 
-		multiple_choice_questions.add("At St. Thomas, plastics with a number _ in the recycling triangle are NOT accepted for recycling A. 1 B. 2 C. 4 D. 5 ?");
+		multiple_choice_questions.add("At St. Thomas, plastics with a number _ in the recycling triangle are NOT accepted for recycling");
 		
 		multiple_choice_questions_a.add("1");
 
@@ -126,7 +126,7 @@ public class Question {
 		
 		multiple_choice_answers.add('C');
 
-		multiple_choice_questions.add("All of the following items are accepted for organics recycling (compost), EXCEPT A. All food scraps B. Napkins C. All paper cups D. Flower trimmings ?");
+		multiple_choice_questions.add("All of the following items are accepted for organics recycling (compost), EXCEPT");
 
 		multiple_choice_questions_a.add("All food scraps");
 

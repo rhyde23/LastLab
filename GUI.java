@@ -2,7 +2,6 @@ package LastLab.LastLab;
 
 import javafx.scene.input.KeyEvent;
 
-
 import javafx.application.Application;
 
 import javafx.scene.Scene;
@@ -10,16 +9,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import javafx.scene.layout.Pane;
+
 import javafx.scene.shape.Line;
+
 import javafx.scene.shape.Rectangle;
 
 import javafx.scene.text.Font;
 
 import javafx.scene.paint.Color;
-
-import javafx.scene.control.Alert;
-
-import javafx.scene.control.Alert.AlertType;
 
 import javafx.scene.control.Label;
 
@@ -30,6 +27,10 @@ public class GUI extends Application {
 	public final int PANE_HEIGHT = 600;
 	
 	private Answer answer = new Answer();
+	
+	private Player player1 = new Player();
+	
+	private Player player2 = new Player();
 	
 	private int player1_selection = 0;
     
@@ -47,16 +48,64 @@ public class GUI extends Application {
     
 	private Rectangle player2_selection_box = new Rectangle(135, 90);
 	
+	private Character[] chars = {'A', 'B', 'C', 'D'};
+	
+	private Label question;
+	
+	private Label questionA;
+	
+	private Label questionB;
+	
+	private Label questionC;
+	
+	private Label questionD;
+	
+	private Label player1_score_text;
+	
+	private Label player2_score_text;
+	
+	private Label player1_questionA;
+	
 	public void start(Stage primaryStage) {
 		
 		//Create GridPane object
 		Pane root = new Pane();
 	
 	    //Add JavaFX objects to GridPane object
-
-		Label question = new Label(answer.getQuestion());
 		
-		question.setFont(Font.font("Arial", 20));
+		player1_questionA = new Label("A");
+		
+		player1_questionA.setFont(Font.font("Arial", 15));
+		
+		player1_questionA.setTextFill(Color.RED);
+        
+		player1_questionA.setLayoutX(50);
+		
+		player1_questionA.setLayoutY(PANE_HEIGHT-250);
+		
+		player1_score_text = new Label("Player 1 score: " + player1.getScore());
+		
+		player1_score_text.setFont(Font.font("Arial", 15));
+		
+		player1_score_text.setTextFill(Color.BLACK);
+        
+		player1_score_text.setLayoutX(140);
+		
+		player1_score_text.setLayoutY(275);
+		
+		player2_score_text = new Label("Player 2 score: " + player2.getScore());
+		
+		player2_score_text.setFont(Font.font("Arial", 15));
+		
+		player2_score_text.setTextFill(Color.BLACK);
+        
+		player2_score_text.setLayoutX(740);
+		
+		player2_score_text.setLayoutY(275);
+		
+		question = new Label(answer.getQuestion());
+		
+		question.setFont(Font.font("Arial", 15));
 		
 		question.setTextFill(Color.BLACK);
         
@@ -64,7 +113,7 @@ public class GUI extends Application {
 		
 		question.setLayoutY(0);
 		
-		Label questionA = new Label("A. " + answer.getQuestionA());
+		questionA = new Label("A. " + answer.getQuestionA());
 		
 		questionA.setFont(Font.font("Arial", 15));
 		
@@ -74,7 +123,7 @@ public class GUI extends Application {
 		
 		questionA.setLayoutY(50);
 		
-		Label questionB = new Label("B. " + answer.getQuestionB());
+		questionB = new Label("B. " + answer.getQuestionB());
 		
 		questionB.setFont(Font.font("Arial", 15));
 		
@@ -84,7 +133,7 @@ public class GUI extends Application {
 		
 		questionB.setLayoutY(80);
 		
-		Label questionC = new Label("C. " + answer.getQuestionC());
+		questionC = new Label("C. " + answer.getQuestionC());
 		
 		questionC.setFont(Font.font("Arial", 15));
 		
@@ -94,7 +143,7 @@ public class GUI extends Application {
 		
 		questionC.setLayoutY(110);
 		
-		Label questionD = new Label("D. " + answer.getQuestionD());
+		questionD = new Label("D. " + answer.getQuestionD());
 		
 		questionD.setFont(Font.font("Arial", 15));
 		
@@ -196,7 +245,7 @@ public class GUI extends Application {
 		
         player2_selection_box.setY(player2_selection_box_ys[player2_selection]);  
 		
-		root.getChildren().addAll(question, questionA, questionB, questionC, questionD, player1Box,player2Box, line1, line2, line3, line4, player1_selection_box, player2_selection_box);
+		root.getChildren().addAll(question, questionA, questionB, questionC, questionD, player1Box,player2Box, line1, line2, line3, line4, player1_selection_box, player2_selection_box, player1_score_text, player2_score_text, player1_questionA);
 		
 	    //Create Scene object
 		Scene scene = new Scene(root, PANE_WIDTH, PANE_HEIGHT);
@@ -306,7 +355,66 @@ public class GUI extends Application {
 	        	}
  	          
 
-	        	break;	
+	        	break;
+	        
+	        case ENTER:
+	        	
+	        	if(answer.isCorrect(chars[player2_selection])) {
+	        		
+	        		player2.incrementScore();
+	        		
+	        		player2_score_text.setText("Player 2 score: " + player2.getScore());
+	        		
+	        	}
+	        	
+	        	answer.nextQuestion();
+	        	
+	        	player1_selection = 0;
+	        	
+	        	player2_selection = 0;
+	        	
+	        	question.setText(answer.getQuestion());
+	    		
+	        	questionA.setText("A. " + answer.getQuestionA());
+	        	
+	        	questionB.setText("C. " + answer.getQuestionB());
+	        	
+	        	questionC.setText("B. " + answer.getQuestionC());
+	        	
+	        	questionD.setText("D. " + answer.getQuestionD());
+	        	
+	        	break;
+	        
+	        case SHIFT:
+	        	
+	        	if(answer.isCorrect(chars[player1_selection])) {
+	        		
+	        		player1.incrementScore();
+	        		
+	        		player1_score_text.setText("Player 1 score: " + player1.getScore());
+	        		
+	        	}
+	        	
+	        	
+	        	answer.nextQuestion();
+	        	
+	        	player1_selection = 0;
+	        	
+	        	player2_selection = 0;
+	        	
+	        	question.setText(answer.getQuestion());
+	    		
+	        	questionA.setText("A. " + answer.getQuestionA());
+	        	
+	        	questionB.setText("C. " + answer.getQuestionB());
+	        	
+	        	questionC.setText("B. " + answer.getQuestionC());
+	        	
+	        	questionD.setText("D. " + answer.getQuestionD());
+	        	
+	        	break;
+	        	
+ 	        
 		}
 		
 		player2_selection_box.setX(player2_selection_box_xs[player2_selection]);          
