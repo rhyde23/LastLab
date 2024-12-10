@@ -28,7 +28,7 @@ public class MainGUI {
                     
                     break; // Exit loop if valid input is given
                     
-                } else if (input == 2) {
+                } else if (input == 2) { 
                 	
                     TFGUI.main(args);
                     

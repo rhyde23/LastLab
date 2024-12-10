@@ -2,6 +2,8 @@ package LastLab.LastLab;
 
 import java.util.ArrayList;
 
+import java.util.Collections;
+
 public class Question {
 	
 	private ArrayList<String> multiple_choice_questions = new ArrayList<String>();
@@ -19,6 +21,8 @@ public class Question {
 	private ArrayList<String> tf_questions = new ArrayList<String>();
 	
 	private ArrayList<Character> tf_choice_answers = new ArrayList<Character>();
+	
+	private ArrayList<Integer> indexes;
 	
 	private String question;
 	
@@ -214,21 +218,31 @@ public class Question {
 		
 		tf_choice_answers.add('F');
 		
-		setQuestion(0);
+		indexes = new ArrayList<>();
 		
-		setQuestionA(0);
+        for (int i = 0; i <= 10; i++) {
+        	
+        	indexes.add(i);
+            
+        }
+
+        Collections.shuffle(indexes);
+        
+        setQuestion(indexes.get(0));
 		
-		setQuestionB(0);
+		setQuestionA(indexes.get(0));
 		
-		setQuestionC(0);
+		setQuestionB(indexes.get(0));
 		
-		setQuestionD(0);
+		setQuestionC(indexes.get(0));
 		
-		setAnswer(0);
+		setQuestionD(indexes.get(0));
 		
-		setTFQuestion(0);
+		setAnswer(indexes.get(0));
+		
+		setTFQuestion(indexes.get(0));
 			
-		setTFAnswer(0);
+		setTFAnswer(indexes.get(0));
 		
 	}
 	
@@ -325,6 +339,12 @@ public class Question {
 	public Character getTFAnswer() {
 		
 		return tf_answer;
+		
+	}
+	
+	public int getRealIndex(int x) {
+		
+		return indexes.get(x);
 		
 	}
 	

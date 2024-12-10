@@ -31,17 +31,19 @@ public class MCAnswer extends Question implements Answer {
 		
 		question_index ++;
 		
-		setQuestion(question_index);
+		int real_index = getRealIndex(question_index);
 		
-		setQuestionA(question_index);
+		setQuestion(real_index);
 		
-		setQuestionB(question_index);
+		setQuestionA(real_index);
 		
-		setQuestionC(question_index);
+		setQuestionB(real_index);
 		
-		setQuestionD(question_index);
+		setQuestionC(real_index);
 		
-		setAnswer(question_index);
+		setQuestionD(real_index);
+		
+		setAnswer(real_index);
 		
 	}
 	

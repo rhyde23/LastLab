@@ -30,10 +30,12 @@ public class TFAnswer extends Question implements Answer {
 	public void nextQuestion() {
 		
 		question_index ++;
+		
+		int real_index = getRealIndex(question_index);
 			
-		setTFQuestion(question_index);
+		setTFQuestion(real_index);
 			
-		setTFAnswer(question_index);
+		setTFAnswer(real_index);
 		
 	}
 
